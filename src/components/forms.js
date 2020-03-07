@@ -6,7 +6,7 @@ class Forms extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          name: "",
+		name: "",
           projectName: "",
           link: "",
           description: "",
@@ -14,16 +14,65 @@ class Forms extends React.Component {
           database: "",
           submit: false
         };
+	this.handleName = this.handleName.bind(this);
+	this.handleProjectName = this.handleProjectName.bind(this);
+	this.handleLink = this.handleLink.bind(this);
+	this.handleDescription = this.handleDescription.bind(this);
+	this.handleTechnology = this.handleTechnology.bind(this);
+	this.handleDatabase = this.handleDatabase.bind(this);
+	this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    handleName(e) {
+     this.setState({
+       name: e.target.value
+       });
+    }
+
+    handleProjectName(e) {
+     this.setState({
+       projectName: e.target.value
+       });
+    }
+
+    handleLink(e) {
+     this.setState({
+       link: e.target.value
+       });
+    }
+
+    handleDescription(e) {
+     this.setState({
+       description: e.target.value
+       });
+    }
+
+    handleTechnology(e) {
+     this.setState({
+       technology: e.target.value
+       });
+    }
+
+    handleDatabase(e) {
+     this.setState({
+       database: e.target.value
+       });
+    }
+
+handleSubmit(e) {
+    e.preventDefault();  
+    console.log(this.state.name);
+}
+
 
     render(){
         return(
          <div className="form">
-<Form>
+<Form onSubmit={this.handleSubmit}>
     <Form.Group as={Row} controlId="name">
         <Form.Label column sm="2">Name</Form.Label>
         <Col sm="10">
-            <Form.Control required type="name" placeholder="Your name" />
+            <Form.Control required type="name" placeholder="Your name" value={this.state.name} onChange={this.handleName}/>
         </Col>
     </Form.Group>
 
@@ -81,7 +130,7 @@ class Forms extends React.Component {
         </Col>
     </Form.Group>
     <div className="button">
-        <Button variant="primary">Submit Project</Button>
+        <Button type="submit" variant="primary">Submit Project</Button>
     </div>
     
 </Form>

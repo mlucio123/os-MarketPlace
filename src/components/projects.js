@@ -52,7 +52,7 @@ showProject(projects) {
         return(
             <div>
 		<h1>OS MARKETPLACE</h1>
-		<div classname="projects">
+		<div className="projects">
 		 <Card style={{ width: '18rem' }}>
 		   <Card.Img variant="top" src="Object(Object(this.state.projects[0]).user).avatar_url" />
 		   <Card.Body>
@@ -64,6 +64,9 @@ showProject(projects) {
 		  </Card.Body>
 		 </Card>
 		</div>
+		<div className="button">
+          <Button variant="primary" href="/form">Share Project</Button>
+        </div>
             </div>
         )
     }
